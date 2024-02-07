@@ -15,6 +15,7 @@ pipeline {
             }
             steps {
                 // Deployment steps for the development environment
+                sh 'kubectl apply -f ./deployment/dev.yaml'
                 echo 'Deploying to the development environment...'
             }
         }
@@ -25,6 +26,7 @@ pipeline {
             }
             steps {
                 // Deployment steps for the test environment
+                sh 'kubectl apply -f ./deployment/test.yaml'
                 echo 'Deploying to the test environment...'
             }
         }
@@ -35,6 +37,7 @@ pipeline {
             }
             steps {
                 // Deployment steps for the production environment
+                sh 'kubectl apply -f ./deployment/prod.yaml'
                 echo 'Deploying to the production environment...'
             }
         }
